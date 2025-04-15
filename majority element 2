@@ -1,0 +1,16 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        n=len(nums)
+        dict1={}
+        for i in nums:
+            if i in dict1:
+                dict1[i]+=1
+            else:
+                dict1[i]=1
+        res=[]
+        for k,v in dict1.items():
+            if dict1[k]>n//3:
+                res.append(k)
+        return res
+
+        
