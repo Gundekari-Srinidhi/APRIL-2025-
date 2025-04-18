@@ -1,0 +1,11 @@
+num=input("enter:")
+s=""
+for i in range(len(num)-1,-1,-1):
+    if int(num[i])%2!=0:
+        p=num[:i+1]
+        s+=p
+        break
+print(s)
+
+
+            
