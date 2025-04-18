@@ -1,0 +1,11 @@
+s=input("enter:")
+temp=list(s)
+goal=input("enter:")
+for i in temp:
+    p=temp.pop(0)
+    temp.append(p)
+    t="".join(temp)
+    if t==goal:
+        print(True)
+        exit()
+print(False)
