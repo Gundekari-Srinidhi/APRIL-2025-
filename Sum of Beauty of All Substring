@@ -1,0 +1,16 @@
+s = input("Enter:")
+sum=0
+for i in range(len(s)):
+    for j in range(i,len(s)):
+        sub=s[i:j+1]
+        d={}
+        for val in sub:
+            if val in d:
+                d[val]+=1
+            else:
+                d[val]=1
+        
+        max1=max(d.values())
+        min1=min(d.values())
+        sum+=max1-min1
+print(sum)
