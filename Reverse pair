@@ -1,0 +1,40 @@
+class Solution:
+    def mergesort(self,nums,l,mid,h,count):
+        k=l
+        left=nums[l:mid+1]
+        right=nums[mid+1:h+1]
+        i=0
+        for r in right:
+            while i<len(left) and left[i]<=2*r:
+                i+=1
+            count+=len(left)-i
+        i=j=0
+        while i<len(left) and j<len(right):
+            if left[i]<right[j]:
+                nums[k]=left[i]
+                i+=1
+            else:
+                nums[k]=right[j]
+                j+=1
+            k+=1
+        while i<len(left):
+            nums[k]=left[i]
+            i+=1
+            k+=1
+        while j<len(right):
+            nums[k]=right[j]
+            j+=1
+            k+=1
+        return count
+    def merge(self,nums,l,h,count):
+        if l>=h:
+            return count
+        mid=(l+h)//2
+        count=self.merge(nums,l,mid,count)
+        count=self.merge(nums,mid+1,h,count)
+        count=self.mergesort(nums,l,mid,h,count)
+        return count
+    def reversePairs(self, nums: List[int]) -> int:
+        n=len(nums)
+        count=0
+        return self.merge(nums,0,n-1,count)
