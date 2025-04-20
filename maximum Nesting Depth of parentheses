@@ -1,0 +1,12 @@
+s=input("enter:")
+max1=0
+stack=[]
+for i in s:
+    if i=="(":
+        stack.append(i)
+    elif i==")":
+        p=len(stack)
+        max1=max(max1,p)
+        stack.pop()
+print(max1)
+        
