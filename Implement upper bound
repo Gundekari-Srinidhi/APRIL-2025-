@@ -1,0 +1,18 @@
+def upperbound(arr,x):
+    i=n-1
+    max1=0
+    if x>max(arr):
+        return n
+    else:
+        while i>=0:
+            if arr[i]>x:
+                max1=i
+            else:
+                break
+            i-=1
+        return max1
+
+arr=list(map(int,input("enter:").split()))
+x=int(input("enter:"))
+n=len(arr)
+print(upperbound(arr,x))
