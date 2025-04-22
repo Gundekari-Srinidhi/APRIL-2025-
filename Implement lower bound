@@ -1,0 +1,21 @@
+def bound(arr,x):
+    n=len(arr)
+    i=0
+    min1=0
+    if x>max(arr):
+        return n
+    elif x<min(arr):
+        return 0
+    else:
+        while i<n:
+            if arr[i]<x:
+                min1=max(min1,i)
+            elif arr[i]==x:
+                min1=i
+                return min1
+            i+=1
+        return min1
+arr=list(map(int,input("enter:").split()))
+x=int(input("enter:"))
+print(bound(arr,x))
+
