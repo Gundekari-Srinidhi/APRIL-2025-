@@ -1,0 +1,29 @@
+height=list(map(int,input("enter:").split()))
+n=len(height)
+stack=[]
+left=[0]*n
+left[0]=height[0]
+stack.append(height[0])
+for i in range(1,n):
+    if height[i]<stack[-1]:
+        left[i]=stack[-1]
+    else:
+        stack.append(height[i])
+        left[i]=height[i]
+print(left)
+stack2=[]
+right=[0]*n
+right[-1]=height[-1]
+stack2.append(height[-1])
+for i in range(n-2,-1,-1):
+    if height[i]<stack2[-1]:
+        right[i]=stack2[-1]
+    else:
+        stack2.append(height[i])
+        right[i]=height[i]
+print(right)
+sum1=0
+for i in range(n):
+    min1=min(left[i],right[i])
+    sum1+=abs(height[i]-min1)
+print(sum1)
