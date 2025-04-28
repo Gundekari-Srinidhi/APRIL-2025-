@@ -1,0 +1,16 @@
+s=input("enter:")
+n=len(s)
+stack=[]
+for i in range(n):
+    if s[i]!="]":
+        stack.append(s[i])
+    else:
+        sub=""
+        while stack[-1]!="[":
+            sub=stack.pop()+sub
+        stack.pop()
+        k=""
+        while stack and stack[-1].isdigit():
+            k+=stack.pop()
+        stack.append(int(k)*sub)
+print("".join(stack))
