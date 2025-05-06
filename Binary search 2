@@ -1,0 +1,17 @@
+class Solution:
+    def search1(self,l,r,num,target):
+        if l>r:
+            return False
+        mid=(l+r)//2
+        if target<num[mid]:
+            return self.search1(l,mid-1,num,target)
+        elif target>num[mid]:
+            return self.search1(mid+1,r,num,target)
+        else:
+            return True
+    def search(self, nums: List[int], target: int) -> bool:
+        num=sorted(nums)
+        l=0
+        r=len(num)-1
+        return self.search1(l,r,num,target)
+        
